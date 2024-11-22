@@ -1,165 +1,112 @@
 ---
-title: Perintah Dasar Linux
+title: Manajemen User dan Group
 group: Debian
-updatedDate: 2024-11-22T22:11:00.000Z
+updatedDate: 2024-11-22T22:12:00.000Z
 ---
-Terdapat banyak sekali perintah dasar pada Linux yang bisa kita pelajari untuk memudahkan pekerjaan kita ketika menggunakan sistem operasi Linux. Tetapi, dalam materi ini hanya akan dijelaskan beberapa perintah saja yang mungkin seringkali digunakan.
+Sistem operasi Linux merupakan sistem operasi multiuser. Dikatakan multiuser karena bisa menangani lebih dari satu user dalam waktu bersamaan.
 
 
-Berikut adalah beberapa perintah dasar yang seringkali digunakan:
+Secara garis besar, dalam sistem operasi Linux user dibagi menjadi 2 jenis yaitu user root dan user biasa. Dimana user root memiliki simbol (#) dan user biasa dengan simbol ($). Keduanya memiliki perbedaan dalam hak akses. User root bisa melakukan apa saja dalam sistem operasi sedangkan user biasa biasanya hanya bisa melakukan modifikasi file atau direktori home miliknya saja.
 
 
-### **1. pwd**
-Perintah untuk menunjukkan lokasi direktori yang aktif. Contoh di bawah menampilkan direktori yang aktif berada di `/root`.
+Fungsi dari group di Linux adalah untuk memudahkan pemberian hak akses ke sejumlah user. Dengan adanya group maka ketika kita memiliki 5 user dan kita ingin memberikan hak akses yang sama kepada 5 user tersebut. Tentunya akan sangat merepotkan jika kita harus memberikan hak akses kepada masing-masing user satu per satu.
 
 
+Berikut adalah beberapa perintah dasar untuk melakukan manajemen user dan group.
+
+
+### **1. useradd**
 ```bash
-root@bstkj:~# pwd
-/root
+root@bstkj:~# useradd siswa1
+root@bstkj:~# passwd siswa1
+New password:
+Retype new password:
+passwd: password updated successfully
 ```
-
-### **2. cd**
-Perintah untuk berpindah dari direktori aktif ke direktori lainnya. Contoh berikut berpindah dari direktori aktif yaitu `/root` ke direktori `/home`.
+Perintah `useradd` di atas digunakan untuk membuat user dengan nama `siswa1`. Kemudian diikuti perintah `passwd` untuk memberikan password pada user `siswa1`.
 
 
+### **2. adduser**
 ```bash
-root@bstkj:~# cd /home
-root@bstkj:/home#
+root@bstkj:~# adduser siswa2
+Adding user `siswa2' ...
+Adding new group `siswa2' (1003) ...
+Adding new user `siswa2' (1003) with group `siswa2' ...
+Creating home directory `/home/siswa2' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for siswa2
+Enter the new value, or press ENTER for the default
+ Full Name []: Siswa 2
+ Room Number []:
+ Work Phone []:
+ Home Phone []: 12345
+ Other []:
+Is the information correct? [Y/n] y
+root@bstkj:~# ls /home
+siswa2 user1
 ```
+Perintah `adduser` juga digunakan untuk membuat sebuah user seperti `useradd`. Perbedaannya adalah `adduser` akan meminta detail user yang dibuat dan dibuatkan sebuah home direktori di `/home/namauser`.
 
 
-### **3. ls**
-Perintah untuk melihat isi dari sebuah direktori. Contoh berikut menampilkan isi dari direktori `/home`.
-
-
+### **3. su**
 ```bash
-root@bstkj:/home# ls
+root@bstkj:~# su siswa2
+siswa2@bukusakutkj:/root$ su
+Password:
+root@bstkj:~#
+```
+Perintah `su` digunakan untuk login ke user lain. Tampilan di atas menunjukkan perintah untuk login ke user `siswa2` yang merupakan user biasa sehingga tandanya berubah menjadi ($). Kemudian menggunakan perintah `su` saja tanpa nama user untuk login ke user root maka tandanya akan berubah menjadi (#).
+
+
+### **4. userdel**
+```bash
+root@bstkj:~# userdel siswa2 -rf
+userdel: user siswa2 is currently used by process 607
+userdel: siswa2 mail spool (/var/mail/siswa2) not found
+root@bstkj:~# su siswa2
+su: user siswa2 does not exist
+root@bstkj:~# ls /home/
 user1
 ```
-
-### **4. mkdir**
-Perintah untuk membuat sebuah direktori. Contoh berikut membuat direktori `/bukusakutkj` di dalam direktori `/home`.
+Perintah `userdel` di atas digunakan untuk menghapus user `siswa2` dan perintah opsi setelahnya `-rf` berfungsi untuk menghapus user `siswa2` meskipun masih dalam keadaan login. `-f` artinya *force* (hapus paksa) dan `-r` artinya hapus home direktori user `siswa2`.
 
 
+### **5. groupadd**
 ```bash
-root@bstkj:/home# mkdir /home/bukusakutkj
-root@bstkj:/home# ls /home
-bukusakutkj  user1
+root@bstkj:~# groupadd sakutkj
 ```
-
-### **5. rmdir**
-Perintah untuk menghapus sebuah direktori. Contoh berikut menghapus direktori `/bukusakutkj` yang berada pada direktori `/home`.
+Perintah `groupadd` di atas digunakan untuk membuat sebuah group dengan nama `sakutkj`.
 
 
+### **6. groupdel**
 ```bash
-root@bstkj:/home# rmdir /home/bukusakutkj/
-root@bstkj:/home# ls /home
-user1
+root@bstkj:~# groupdel sakutkj
 ```
+Perintah `groupdel` di atas digunakan untuk menghapus sebuah group dengan nama `sakutkj`.
 
 
-### **6. touch**
-Perintah untuk membuat sebuah file. Contoh berikut membuat sebuah file `bukusakutkj.txt` di dalam direktori `/home`.
-
-
+### **7. groups**
 ```bash
-root@bstkj:/home# touch bukusakutkj.txt
-root@bstkj:/home# ls
-bukusakutkj.txt  user1
+root@bstkj:~# groups siswa1
+siswa1 : siswa1
 ```
+Perintah `groups` di atas digunakan untuk melihat keanggotaan user `siswa1` terhadap group.
 
 
-### **7. rm**
-Perintah untuk menghapus sebuah file. Contoh berikut menghapus file `bukusakutkj.txt` yang berada pada direktori `/home`.
-
-
+### **8. adduser & groups**
 ```bash
-root@bstkj:/home# rm bukusakutkj.txt
-root@bstkj:/home# ls
-user1
+root@bstkj:~# adduser siswa1 sakutkj
+Adding user `siswa1' to group `sakutkj' ...
+Adding user siswa1 to group sakutkj
+Done.
+root@bstkj:~# groups siswa1
+siswa1 : siswa1 sakutkj
 ```
+Perintah `adduser` di atas akan memasukkan user `siswa1` ke group `sakutkj`. Bisa dilihat di atas bahwa `siswa1` merupakan anggota dari group `siswa1` (dirinya sendiri) dan grup `sakutkj`.
 
 
-### **8. cp**
-Perintah untuk meng-copy file atau folder. Contoh berikut meng-copy file `bukumu.txt` pada direktori `kamu` ke direktori `saya`.
-
-
-```bash
-root@bstkj:/home# mkdir saya kamu
-root@bstkj:/home# touch kamu/bukumu.txt
-root@bstkj:/home# cp kamu/bukumu.txt saya/
-root@bstkj:/home# ls saya/
-bukumu.txt
-```
-
-
-Untuk meng-copy direktori beserta isinya, gunakan opsi `-rf`.
-
-
-```bash
-root@bstkj:/home# cp saya/ kamu/ -rf
-root@bstkj:/home# ls kamu/
-bukumu.txt saya
-root@bstkj:/home# ls kamu/saya/
-bukumu.txt
-```
-
-
-### **9. mv**
-Perintah untuk memindahkan sebuah file atau direktori. Berikut contoh memindahkan file `bukumu.txt` dari direktori `saya` ke `/home`.
-
-
-```bash
-root@bstkj:/home# mv saya/bukumu.txt /home
-root@bstkj:/home# ls /home/
-bukumu.txt  kamu  saya  user1
-```
-
-### **10. man**
-Perintah untuk menampilkan manual atau bantuan dari suatu perintah. Berikut contoh menampilkan manual dari perintah `mv`.
-
-
-```bash
-root@bstkj:~# man mv
-```
-
-
-### **11. cat**
-Perintah untuk menampilkan isi dari suatu file. Berikut contoh menampilkan isi file `interfaces` yang ada pada direktori `/etc/network`.
-
-
-```bash
-root@bstkj:/home# cat /etc/network/interfaces
-
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-source /etc/network/interfaces.d/*
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-
-# The primary network interface
-allow-hotplug enp0s3
-iface enp0s3 inet dhcp
-```
-
-### **12. grep**
-Perintah untuk mencari karakter, kata, atau kalimat tertentu dengan suatu kata kunci. Contoh berikut mencari kata `dhcp` dan `lo` pada file `/etc/network/interfaces`.
-
-
-```bash
-root@bstkj:~# cat /etc/network/interfaces | grep dhcp
-#iface enp0s3 inet dhcp
-
-root@bstkj:~# cat /etc/network/interfaces | grep lo
-# The loopback network interface
-auto lo
-iface lo inet loopback
-#allow-hotplug enp0s3
-```
-
-### Referensi:
+**Referensi:**
 Ebook *Administrasi Server Jaringan dengan Debian Wheezy* - Ahmad Rosid Komarudin
-```
