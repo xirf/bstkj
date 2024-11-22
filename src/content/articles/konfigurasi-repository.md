@@ -16,7 +16,17 @@ Untuk menggunakan cara ini, diperlukan file ISO Debian Binary 1 sampai 3 yang bi
 root@sakutkj:/# nano /etc/apt/sources.list
 ```
 
-Pertama, beri tanda `#` atau komentar pada file `/etc/apt/sources.list`. Kemudian masukkan DVD Debian Binary 1 dan ketikkan perintah berikut.
+Pertama, beri tanda `#` atau komentar pada file `/etc/apt/sources.list`. 
+
+
+![Repo](https://box.andka.my.id/repositori0.png)
+
+Kemudian masukkan DVD Debian Binary 1 dan ketikkan perintah berikut. 
+```bash
+apt-cdrom add
+```
+
+![repo1](https://box.andka.my.id/repositori.png)
 
 Selanjutnya, masukkan DVD Debian Binary 2 dan 3, kemudian ketikkan perintah di atas. Setelah itu, Anda bisa langsung menginstall aplikasi-aplikasi yang dibutuhkan menggunakan perintah `apt-install nama-paket`.
 
@@ -73,6 +83,8 @@ root@sakutkj:/# nano /etc/apt/sources.list
 ```
 
 Berikan tanda `#` atau komentar pada baris perintah yang tidak dibutuhkan. Kemudian, tambahkan list repository, misalnya menggunakan repo Kambing UI.
+
+![repo3](https://box.andka.my.id/list-repo.png)
 
 Selanjutnya, pastikan komputer server terkoneksi dengan internet, lalu ketikkan perintah berikut:
 
