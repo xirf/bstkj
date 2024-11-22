@@ -3,9 +3,6 @@ title: Konfigurasi FTP Server
 group: Debian
 updatedDate: 2024-11-22T22:59:00.000Z
 ---
-Berikut adalah konversi kalimat yang Anda berikan ke format Markdown:
-
-### File Transfer Protocol (FTP)
 FTP adalah sebuah protokol yang digunakan untuk transfer file atau data melalui jaringan. Protokol ini seringkali digunakan untuk melakukan transfer file-file web ke web server.
 
 Berikut cara konfigurasi FTP Server pada Debian.
