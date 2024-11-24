@@ -104,7 +104,7 @@ Printer adalah perangkat keluaran yang digunakan untuk mencetak data atau inform
 #### - Proyektor
 Proyektor digunakan untuk menampilkan gambar yang dihasilkan oleh komputer atau pemutar Blu-ray ke permukaan datar seperti layar atau dinding.
 
-![pc18](pc18)
+![pc18](https://box.andka.my.id/proyektor.jpg)
 
 #### - Headset
 Headset adalah perangkat yang terhubung pada komputer atau telepon genggam untuk mendengarkan suara atau berbicara.
