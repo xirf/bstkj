@@ -1,0 +1,120 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const article = await getCollection("articles");
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<body class="is-boxed has-animations">
+			<div class="body-wrap">
+				<header class="site-header">
+					<div class="container">
+						<div class="site-header-inner">
+							<div class="brand header-brand">
+								<h1 class="m-0">
+									<a href="#">
+										<svg width="28" height="32" xmlns="http://www.w3.org/2000/svg">
+											<defs>
+												<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
+													<stop stop-color="#00BFFB" offset="0%"></stop>
+													<stop stop-color="#0270D7" offset="100%"></stop>
+												</linearGradient>
+												<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b">
+													<stop stop-color="#1F232A" stop-opacity=".48" offset="0%"></stop>
+													<stop stop-color="#1F2329" stop-opacity="0" offset="100%"></stop>
+												</linearGradient>
+												<linearGradient x1="87.665%" y1="103.739%" x2="-3.169%" y2="38.807%" id="c">
+													<stop stop-color="#FFF" stop-opacity="0" offset="0%"></stop>
+													<stop stop-color="#FFF" stop-opacity=".64" offset="100%"></stop>
+												</linearGradient>
+												<linearGradient x1="-14.104%" y1="111.262%" x2="109.871%" y2="26.355%" id="d">
+													<stop stop-color="#0270D7" offset="0%"></stop>
+													<stop stop-color="#0270D7" stop-opacity="0" offset="100%"></stop>
+												</linearGradient>
+											</defs>
+											<g fill="none" fill-rule="evenodd">
+												<path fill="url(#a)" transform="rotate(90 14 16)" d="M6 2l-8 13.999L6 30h16l8-14.001L22 2z"></path>
+												<path fill="url(#b)" d="M14 0v32L0 24V8z"></path>
+												<path fill="url(#c)" d="M28 24L0 8l14.001-8L28 8z"></path>
+												<path
+													fill-opacity=".48"
+													fill="url(#d)"
+													style="mix-blend-mode:multiply"
+													d="M28 8L0 23.978V8l14.001-8L28 8z"></path>
+											</g>
+										</svg>
+									</a>
+								</h1>
+							</div>
+						</div>
+					</div>
+				</header>
+
+				<main>
+					<section class="hero">
+						<div class="container">
+							<h1 id="ketentuan-layanan-terms-of-service-">Ketentuan Layanan (Terms of Service)</h1>
+							<h2 id="aplikasi-buku-saku-tkj">Aplikasi Buku Saku TKJ</h2>
+							<h3 id="1-tujuan-dan-layanan">1. Tujuan dan Layanan</h3>
+							<p>
+								<strong>Buku Saku TKJ</strong> merupakan aplikasi yang dirancang sebagai media pembelajaran dan alat bantu untuk kegiatan
+								yang berkaitan dengan Teknik Komputer dan Jaringan (TKJ), seperti subnetting dan konversi sistem bilangan. Aplikasi ini
+								disediakan secara <strong>gratis</strong> bagi siswa serta pengguna umum yang berminat menggunakannya.
+							</p>
+							<h3 id="2-pembaruan-materi">2. Pembaruan Materi</h3>
+							<p>
+								Aplikasi ini akan secara otomatis melakukan sinkronisasi data setiap 10 (sepuluh) hari untuk memastikan bahwa materi
+								pembelajaran selalu diperbarui. Proses sinkronisasi hanya melibatkan pengunduhan materi terbaru dari server kami tanpa
+								mengumpulkan data pengguna.
+							</p>
+							<h3 id="3-hak-cipta-dan-konten">3. Hak Cipta dan Konten</h3>
+							<p>
+								Seluruh konten dalam aplikasi ini dilisensikan di bawah <strong>Apache License 2.0</strong>. Materi yang berasal dari
+								sumber pihak ketiga telah dicantumkan atribusinya sesuai ketentuan sumber asli. Pengguna diwajibkan menghormati
+								ketentuan hak cipta yang berlaku.
+							</p>
+							<h3 id="4-pembatasan-penggunaan">4. Pembatasan Penggunaan</h3>
+							<p>
+								Pengguna tidak diperbolehkan menggunakan aplikasi ini untuk aktivitas yang melanggar hukum atau bersifat ilegal.
+								Segala kerugian, kerusakan, atau konsekuensi hukum yang timbul akibat penyalahgunaan aplikasi sepenuhnya menjadi
+								tanggung jawab pengguna.
+							</p>
+							<h3 id="5-integrasi-layanan-pihak-ketiga">5. Integrasi Layanan Pihak Ketiga</h3>
+							<p>Aplikasi ini melakukan integrasi dengan layanan berikut:</p>
+							<ul>
+								<li><strong>bstkj.andka.my.id</strong> untuk memperbarui materi pembelajaran.</li>
+								<li><strong>cdn.andka.my.id</strong> untuk penyediaan gambar pendukung dalam aplikasi.</li>
+							</ul>
+							<p>Seluruh proses ini tidak melibatkan pengumpulan atau pengiriman data pribadi pengguna ke server pihak ketiga.</p>
+							<h3 id="6-keakuratan-informasi">6. Keakuratan Informasi</h3>
+							<p>
+								Pengembang berkomitmen untuk menyediakan informasi yang akurat dan terkini. Namun, tidak ada jaminan mengenai
+								keakuratan, kelengkapan, atau kesesuaian informasi yang disajikan. Pengguna diimbau untuk menggunakan kebijaksanaan
+								dalam menelaah informasi sebelum menggunakannya.
+							</p>
+							<h3 id="7-tanggung-jawab">7. Tanggung Jawab</h3>
+							<p>Pengembang aplikasi tidak bertanggung jawab atas:</p>
+							<ul>
+								<li>Kerusakan perangkat keras maupun perangkat lunak yang mungkin terjadi akibat penggunaan aplikasi ini.</li>
+								<li>Kesalahan atau kekeliruan dalam informasi yang disajikan.</li>
+							</ul>
+							<p>Pengguna bertanggung jawab penuh atas keputusan yang diambil berdasarkan informasi yang tersedia dalam aplikasi.</p>
+							<h3 id="8-ketentuan-umum">8. Ketentuan Umum</h3>
+							<p>
+								Dengan menggunakan aplikasi ini, pengguna dianggap telah membaca, memahami, dan menyetujui seluruh ketentuan yang
+								tercantum dalam dokumen ini. Pengembang berhak mengubah ketentuan layanan sewaktu-waktu, dan setiap perubahan akan
+							</p>
+						</div>
+					</section>
+				</main>
+			</div>
+		</body>
+	</body>
+</html>

@@ -1,0 +1,122 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const article = await getCollection("articles");
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<body class="is-boxed has-animations">
+			<div class="body-wrap">
+				<header class="site-header">
+					<div class="container">
+						<div class="site-header-inner">
+							<div class="brand header-brand">
+								<h1 class="m-0">
+									<a href="#">
+										<svg width="28" height="32" xmlns="http://www.w3.org/2000/svg">
+											<defs>
+												<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
+													<stop stop-color="#00BFFB" offset="0%"></stop>
+													<stop stop-color="#0270D7" offset="100%"></stop>
+												</linearGradient>
+												<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b">
+													<stop stop-color="#1F232A" stop-opacity=".48" offset="0%"></stop>
+													<stop stop-color="#1F2329" stop-opacity="0" offset="100%"></stop>
+												</linearGradient>
+												<linearGradient x1="87.665%" y1="103.739%" x2="-3.169%" y2="38.807%" id="c">
+													<stop stop-color="#FFF" stop-opacity="0" offset="0%"></stop>
+													<stop stop-color="#FFF" stop-opacity=".64" offset="100%"></stop>
+												</linearGradient>
+												<linearGradient x1="-14.104%" y1="111.262%" x2="109.871%" y2="26.355%" id="d">
+													<stop stop-color="#0270D7" offset="0%"></stop>
+													<stop stop-color="#0270D7" stop-opacity="0" offset="100%"></stop>
+												</linearGradient>
+											</defs>
+											<g fill="none" fill-rule="evenodd">
+												<path fill="url(#a)" transform="rotate(90 14 16)" d="M6 2l-8 13.999L6 30h16l8-14.001L22 2z"></path>
+												<path fill="url(#b)" d="M14 0v32L0 24V8z"></path>
+												<path fill="url(#c)" d="M28 24L0 8l14.001-8L28 8z"></path>
+												<path
+													fill-opacity=".48"
+													fill="url(#d)"
+													style="mix-blend-mode:multiply"
+													d="M28 8L0 23.978V8l14.001-8L28 8z"></path>
+											</g>
+										</svg>
+									</a>
+								</h1>
+							</div>
+						</div>
+					</div>
+				</header>
+
+				<main>
+					<section class="hero">
+						<div class="container">
+							<p>
+								<privacy_policy></privacy_policy>
+								<p>
+									<content></content>
+									<h1 id="kebijakan-privasi">Kebijakan Privasi</h1>
+									<h2 id="1-pendahuluan">1. Pendahuluan</h2>
+									<p>
+										Aplikasi <strong>Buku Saku TKJ</strong> menghargai privasi pengguna dan berkomitmen untuk melindungi data pribadi.
+										Kebijakan ini menjelaskan bagaimana aplikasi ini menangani informasi yang terkait dengan pengguna.
+									</p>
+									<h2 id="2-data-yang-dikumpulkan">2. Data yang Dikumpulkan</h2>
+									<p>
+										Aplikasi ini <strong>tidak mengumpulkan data pribadi</strong> pengguna. Seluruh fitur aplikasi dapat digunakan
+										tanpa memerlukan pendaftaran atau pengumpulan informasi pribadi apa pun.
+									</p>
+									<h2 id="3-sinkronisasi-data">3. Sinkronisasi Data</h2>
+									<p>
+										Aplikasi melakukan sinkronisasi otomatis setiap 10 (sepuluh) hari untuk memperbarui materi pembelajaran.
+										Proses ini hanya melibatkan pengunduhan data dari server berikut:
+									</p>
+									<ul>
+										<li><strong>bstkj.andka.my.id</strong> untuk pembaruan materi.</li>
+										<li><strong>cdn.andka.my.id</strong> untuk penyediaan gambar pendukung.</li>
+									</ul>
+									<p>Sinkronisasi ini tidak melibatkan pengumpulan atau pengiriman data pengguna ke server.</p>
+									<h2 id="4-penggunaan-data">4. Penggunaan Data</h2>
+									<p>
+										Karena tidak ada data pengguna yang dikumpulkan, tidak ada informasi yang disimpan, digunakan, atau dibagikan
+										kepada pihak ketiga.
+									</p>
+									<h2 id="5-keamanan-data">5. Keamanan Data</h2>
+									<p>
+										Kami berkomitmen untuk memastikan bahwa infrastruktur server yang digunakan untuk mendukung aplikasi ini aman
+										dari akses tidak sah. Namun, pengguna disarankan untuk tetap berhati-hati terhadap potensi risiko keamanan
+										yang berada di luar kendali kami.
+									</p>
+									<h2 id="6-hak-pengguna">6. Hak Pengguna</h2>
+									<p>
+										Karena aplikasi ini tidak mengumpulkan data pribadi, pengguna memiliki kendali penuh atas perangkat dan
+										informasi mereka. Tidak ada tindakan yang perlu diambil terkait penghapusan atau pengelolaan data pengguna.
+									</p>
+									<h2 id="7-perubahan-kebijakan">7. Perubahan Kebijakan</h2>
+									<p>
+										Kami dapat mengubah kebijakan privasi ini sewaktu-waktu. Perubahan tersebut akan diberitahukan melalui
+										aplikasi. Pengguna disarankan untuk memeriksa kebijakan privasi ini secara berkala.
+									</p>
+									<h2 id="8-kontak">8. Kontak</h2>
+									<p>
+										Apabila pengguna memiliki pertanyaan atau keluhan terkait kebijakan privasi ini, silakan menghubungi
+										pengembang melalui alamat email berikut:<br /><strong>[hy@andka.my.id]</strong>
+									</p>
+								</p>
+							</p>
+						</div>
+					</section>
+				</main>
+			</div>
+		</body>
+	</body>
+</html>
